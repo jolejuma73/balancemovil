@@ -5,177 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <style>
-       
-
- /* Fondo y color general */
-        html, body {
-            height: 100%; 
-            background-color: #e6f7ff; /* Azul muy claro */
-            color: #000; /* Texto negro */
-            margin: 0;
-        }
-
-        /* Contenedor principal */
-        .container {
-            min-height: 100%; 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 0px;
-        }
-
-        /* Tabla de Ingresos */
-        .tabla-ingresos td, .tabla-ingresos th {
-            background-color: #d4f8d4; /* Verde muy claro */
-            color: #000; /* Texto negro */
-
-
-        }
-        .tabla-ingresos thead th {
-            background-color: #bde0bd; /* Verde más oscuro */
-            font-weight: bold;
-        }
-
-        /* Tabla de Pérdidas */
-        .tabla-perdidas td, .tabla-perdidas th {
-            background-color: #f6ddcc; /* Marrón claro */
-            color: #000; /* Texto negro */
-
-
-
-        }
-        .tabla-perdidas thead th {
-            background-color: #edbb99; /* Marrón más oscuro */
-            font-weight: bold;
-
-
-        }
-
-        /* Tabla de Balance */
-        .tabla-balance td, .tabla-balance th {
-            background-color: #ffd1dc; /* Rosa claro */
-            color: #000; /* Texto negro */
-            font-weight: bold;
-            text-align: center;
-        }
-        .tabla-balance thead th {
-            background-color: #f5a9b8; /* Rosa más oscuro */
-            font-weight: bold;
-        }
-
-        /* Botón de borrado */
-        .button-clear {
-            background-color: #f5a623; /* Naranja claro */
-            color: #fff; /* Texto blanco */
-            border: none;
-            font-weight: bold;
-            font-size: 1rem;
-            padding: 10px 20px;
-            margin-top: 15px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .button-clear:hover {
-            background-color: #d99419; /* Naranja más oscuro al pasar el cursor */
-        }
-
-        /* Tabs activos */
-        .tabs a.is-active {
-            background-color: #4caf50; /* Verde */
-            color: #000; /* Texto negro */
-            border-color: #4caf50; /* Borde verde */
-            font-size: 1.2em;
-            font-weight: bold;
-            padding: 10px 15px;
-            transform: scale(1.1);
-            transition: all 0.3s ease;
-        }
-
-        /* Espaciado entre tablas */
-        .table-container {
-            margin-bottom: 20px;
-        }
-		
-
-/* Ajustar estilo de los campos Total Pérdidas e Ingresos */
-.total-ingresos,
-.total-perdidas {
-    font-size: 1.2em; /* Tamaño de la fuente */
-    font-weight: bold; /* Resaltar */
-    text-align: left; /* Alineación del texto */
-    color: grey; /* Color del texto */
-    border: none; /* Sin bordes para estilo limpio */
-    background-color: #f5f5f5; /* Color de fondo sutil */
-    padding: 5px; /* Espaciado interno */
-}
-
-	/* Ajustar el estilo del campo Balance */
-	#balance-box {
-  	  font-size: 1.2em; /* Igual al Total */
-  	  font-weight: bold;
-   	 text-align: center;
-   	 color: blue; /* Para resaltar balance positivo */
-	}
-
-
-
-    </style>
-
-	<style>
- 	 /* Asegura que todas las tablas tengan el mismo ancho */
-	.table-container table {
-    width: 100%; /* O el tamaño deseado */
-    table-layout: fixed; /* Controla el ancho de las columnas */
-	}
-
-	/* Asegura que todas las celdas sean uniformes */
-	.table-container td, .table-container th {
-    padding: 5px; /* Ajusta el espacio */
-    vertical-align: middle; /* Alinea el contenido */
-    text-align: center; /* Centra el contenido */
-	}
-
-	/* Opcional: Estilo específico para tablas de ingresos y pérdidas */
-	.tabla-ingresos, .tabla-perdidas {
-    width: 100%; /* Asegura el mismo tamaño */
-	}
-
-	.tabla-ingresos td, .tabla-perdidas td {
-    word-wrap: break-word; /* Evita que el contenido se salga */
-	}
-
-
-	</style>
-
-
-	<style>
-   	 /* Sombreado para tabla de ingresos */
-   	 .tabla-ingresos td:hover {
-        background-color: #a9dfbf; /* Verde claro */
-        transition: background-color 0.3s ease; /* Transición suave */
-   	 }
-
-   	 /* Sombreado para tabla de pérdidas */
-   	 .tabla-perdidas td:hover {
-        background-color: #edbb99; /* Marrón claro */
-        transition: background-color 0.3s ease; /* Transición suave */
-    }
-	</style>
-	<style>
-    /* Reducir el alto de celdas para tabla de ingresos */
-    .tabla-ingresos td, .tabla-ingresos th {
-        padding: 4px 8px; /* Menos espacio interno */
-    }
-
-    /* Reducir el alto de celdas para tabla de pérdidas */
-    .tabla-perdidas td, .tabla-perdidas th {
-        padding: 4px 8px;
-    }
-</style>
-
-</head>
+    <link rel="stylesheet" href="styles.css">
+    </head>
 <body>
     <section class="section">
         <div class="container">
@@ -202,10 +33,8 @@
             box.className = 'box is-hidden';
             box.innerHTML = `	
 		
-		<button class="button is-info  is-rounded is-fullwidth"><strong>Box ${i}</strong></button>
-<br>
-  
- <!-- Peso y horas -->
+		<button class="button is-info  is-rounded is-fullwidth"><strong>Box ${i}</strong></button><br>
+    <!-- Peso y horas -->
 		<div class="columns">
                     <div class="column is-half">
                         <div class="field">
@@ -219,233 +48,178 @@
                         <div class="field">
                             <label class="label">Horas:</label>
                             <div class="control">
-                               <input id="horas-box${i}" class="input horas" type="number" min="0" max="24" placeholder="0-24" oninput="validateHours(${i})">
+                            <input id="horas-box${i}" class="input horas" type="number" min="0" max="24" placeholder="0-24" oninput="validateHours(${i})">
 
                             </div>
                         </div>
                     </div>
                 </div>
-	   
-
-                <!-- Tabla de Pérdidas -->
-                <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth tabla-perdidas">
-
-                        <thead>
-                            <tr>
-                                <th>Pérdidas</th>
-                                <th>Valor</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                           <tr>
-			 <td>Diuresis</td>
-                        <td><input id="diuresis-box${i}" class="input perdida" type="number" placeholder="Diuresis"></td>
-			 </tr>
-			
-			<tr>
-			<td>Vómitos Sudor Fiebre Tqn</td>
-                        <td><input id="vofitq-box${i}" class="input perdida" type="number" placeholder="Vómitos Sudor Fiebre Tqn"></td>
-		        </tr>
-
-                        <tr>
-                       <td>Fiebre >37ºC</td><td><input id="horas-fiebre37-box${i}" class="input horas" type="number" min="0" max="24" placeholder="Horas con Fiebre >37ºC" oninput="validateMaxValue(this, 24) ">        	    		<input id="resultado-fiebre37-box${i}" class="input readonly" type="number" placeholder="Fiebre >37°C"  readonly>
-    			</td>
-                         </tr> 
-
-
-
-			 <tr>
-                       <td>Fiebre >38ºC</td><td><input id="horas-fiebre38-box${i}" class="input horas" type="number" min="0" max="24" placeholder="Horas con Fiebre >38ºC" oninput="validateMaxValue(this, 24) ">        	
-       		 	<input id="resultado-fiebre38-box${i}" class="input readonly" type="number" placeholder="Fiebre >38°C"  readonly>
-			</td>
-                         </tr>
-
-                            <tr>
-                       <td>Fiebre >39ºC</td><td><input id="horas-fiebre39-box${i}" class="input horas" type="number" min="0" max="24" placeholder="Horas con Fiebre >39ºC" oninput="validateMaxValue(this, 24) ">   	 	             <input id="resultado-fiebre39-box${i}" class="input readonly" type="number" placeholder="Fiebre >39°C"  readonly>
-    			</td>
-                         </tr>
-			 
-			 <tr>
-                         <td>Rpm >25</td><td><input id="horas-rpm25-box${i}" class="input horas" type="number" min="0" max="24" placeholder="Horas con Rpm >25" oninput="validateMaxValue(this, 24) "> 					                 <input id="resultado-rpm25-box${i}" class="input readonly" type="number" placeholder="Rpm >25"  readonly>
-    			</td>
-                        </tr>
-                            
-			<tr>
-			<td>Rpm >35</td><td><input id="horas-rpm35-box${i}" class="input horas" type="number" min="0" max="24" placeholder="Horas con Rpm >35" oninput="validateMaxValue(this, 24) ">        	
-       		 	<input id="resultado-rpm35-box${i}" class="input readonly" type="number" placeholder="Rpm >35"  readonly>
-    			</td>
-			</tr>
-
-  			<tr>
-			<td>Sng</td>
-			<td><input type="number" id="sng-box${i}" class="input perdida" placeholder="Sng"></td>
-			</tr>
-
-			<tr>
-			<td>Hdfvvc</td>
-   			<td><input type="number" id="hdfvvc-box${i}" class="input perdida" placeholder="Hdfvvc"></td>
-    			</tr>
-
-			<tr>
-			<td>Drenajes</td>
-    			<td><input type="number" id="drenajes-box${i}" class="input perdida" placeholder="Drenajes"></td>
-    			</tr>
-   
-			<tr>
-   			<td>Control de Residuos</td>
-  			<td><input type="number" id="controlderesiduos-box${i}" class="input perdida" placeholder="Control de Residuos"></td>
-   			</tr>
 	
-  			 <tr>
- 			<td>Pérdidas Insensibles</td><td><input id="perdidas-insensibles-box${i}" class="input readonly" type="number" placeholder="Pérdidas Insensibles" readonly></td>
-  			<tr>
-  			
-			<tr>	
-			<td>Cálculo de Vómitos, Sudor, Fiebre y Tqn</td>
-			<td><input type="number" id="fuerafluidos-box${i}" class="input readonly" placeholder="Vómitos,Sudor,Fiebre,Tqn" readonly>
-			</td>
-  			</tr>
-   			
-
-                        </tbody>
-    		<tr>
- 		</thead>
-   		<tbody>
-  		<!-- Añade más filas según sea necesario -->
-		</tbody>
-
- <tfoot>
-                           
-			<tr>
-                         <th>Total Pérdidas</th>
-                          <td><input id="total-perdidas-box${i}" class="input readonly total-perdidas" type="number" placeholder="Total Pérdidas" readonly></td>
-                           </tr>
-			<tr>
-                            <tr>
-                                <th>Balance</th>
-                                <td colspan="3"><input id="balance-box${i}" class="input readonly balance-field" type="number" placeholder="Balance" readonly></td>
-                            </tr>
-                        </tfoot>
-
-                       
-                    </table>
-
-		 </div>
-                
+    <!-- Tabla de Pérdidas -->
+                <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth tabla-perdidas">
+    <thead>
+        <tr>
+            <th>Pérdidas</th>
+            <th>Valor</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+			<td>Diuresis</td>
+            <td><input id="diuresis-box${i}" class="input perdida" type="number" placeholder="Diuresis"></td>
+		</tr>
+			
+        <tr>
+            <td>Vómitos Sudor Fiebre Tqn</td>
+            <td><input id="vofitq-box${i}" class="input perdida" type="number" placeholder="Vómitos Sudor Fiebre Tqn"></td>
+        </tr>
+        <tr>
+            <td>Fiebre >37ºC</td><td><input id="horas-fiebre37-box${i}" class="input horas" type="number" min="0" max="24" placeholder="Horas con Fiebre >37ºC" oninput="validateMaxValue(this, 24) "><input id="resultado-fiebre37-box${i}" class="input readonly" type="number" placeholder="Fiebre >37°C"  readonly>
+            </td>
+        </tr>
+        <tr>
+            <td>Fiebre >38ºC</td><td><input id="horas-fiebre38-box${i}" class="input horas" type="number" min="0" max="24" placeholder="Horas con Fiebre >38ºC" oninput="validateMaxValue(this, 24) "><input id="resultado-fiebre38-box${i}" class="input readonly" type="number" placeholder="Fiebre >38°C"  readonly>
+            </td>
+        </tr>
+        <tr>
+            <td>Fiebre >39ºC</td><td><input id="horas-fiebre39-box${i}" class="input horas" type="number" min="0" max="24" placeholder="Horas con Fiebre >39ºC" oninput="validateMaxValue(this, 24) "><input id="resultado-fiebre39-box${i}" class="input readonly" type="number" placeholder="Fiebre >39°C"  readonly>
+            </td>
+        </tr>
+        <tr>
+            <td>Rpm >25</td><td><input id="horas-rpm25-box${i}" class="input horas" type="number" min="0" max="24" placeholder="Horas con Rpm >25" oninput="validateMaxValue(this, 24) "><input id="resultado-rpm25-box${i}" class="input readonly" type="number" placeholder="Rpm >25"  readonly>
+            </td>
+        </tr>
+        <tr>
+            <td>Rpm >35</td><td><input id="horas-rpm35-box${i}" class="input horas" type="number" min="0" max="24" placeholder="Horas con Rpm >35" oninput="validateMaxValue(this, 24) "><input id="resultado-rpm35-box${i}" class="input readonly" type="number" placeholder="Rpm >35"  readonly>
+            </td>
+        </tr>
+        <tr>
+            <td>Sng</td>
+            <td><input type="number" id="sng-box${i}" class="input perdida" placeholder="Sng"></td>
+        </tr>
+        <tr>
+            <td>Hdfvvc</td>
+            <td><input type="number" id="hdfvvc-box${i}" class="input perdida" placeholder="Hdfvvc"></td>
+        </tr>
+        <tr>
+            <td>Drenajes</td>
+            <td><input type="number" id="drenajes-box${i}" class="input perdida" placeholder="Drenajes"></td>
+        </tr
+        <tr>
+            <td>Control de Residuos</td>
+            <td><input type="number" id="controlderesiduos-box${i}" class="input perdida" placeholder="Control de Residuos"></td>
+        </tr
+        <tr>
+            <td>Pérdidas Insensibles</td><td><input id="perdidas-insensibles-box${i}" class="input readonly" type="number" placeholder="Pérdidas Insensibles" readonly></td>
+            <tr>
+        <tr>	
+            <td>Cálculo de Vómitos, Sudor, Fiebre y Tqn</td>
+            <td><input type="number" id="fuerafluidos-box${i}" class="input readonly" placeholder="Vómitos,Sudor,Fiebre,Tqn" readonly>
+        </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Total Pérdidas</th>
+            <td><input id="total-perdidas-box${i}" class="input readonly total-perdidas" type="number" placeholder="Total Pérdidas" readonly></td>
+        </tr>
+        <tr>
+            <th>Balance</th>
+            <td colspan="3"><input id="balance-box${i}" class="input readonly balance-field" type="number" placeholder="Balance" readonly></td>
+        </tr>
+    </tfoot>
+</table>
+   
 		<div class="buttons is-centered">
                     <button class="button is-danger is-rounded is-active" onclick="clearData(${i})">Borrar Datos</button>
-                </div>
+        </div>
 
         <!-- Tabla de Ingresos -->
-                <div class="table-container">
-                    <table class="table is-bordered is-striped is-hoverable tabla-ingresos">
-                        <thead>
-                            <tr>
-                                <th>Ingresos</th>
-                                <th>Valor</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Midazolán</td>
-                                <td><input id="midazolam-box${i}" class="input ingreso" type="number" placeholder="Midazolán"></td>
-                                
-                            </tr>
-			<tr>
-                          <td>Fentanest</td>
-                          <td><input id="fentanest-box${i}" class="input ingreso" type="number" placeholder="Fentanest"></td>
-                           </tr>
-                            <tr>
-                                <td>Propofol</td>
-                                <td><input id="propofol-box${i}" class="input ingreso" type="number" placeholder="Propofol"></td>
-                              </tr>
-                      <tr>
-                        <td>Remifentanilo</td>
-                         <td><input id="remifentanilo-box${i}" class="input ingreso" type="number" placeholder="Remifentanilo"></td>                                 
-                	</tr>
-
-                            <tr>
-                          <td>Dexdor</td>
-                         <td><input id="dexdor-box${i}" class="input ingreso" type="number" placeholder="Dexdor"></td>
-                         </tr>
-
-
-                            <tr>
-                          <td>Noradrenalina</td>
-                          <td><input id="noradrenalina-box-${i}" class="input ingreso" type="number" placeholder="Noradrenalina"></td>
-                         </tr>
-                            
-			<tr>
-                                <td>Insulina</td>
-                                <td><input id="insulina-box${i}" class="input ingreso" type="number" placeholder="Insulina"></td>
-                                </td>
-			</tr>
-  			<tr>
-  			<td>Sueroterapia 1</td>
- 			<td><input type="number" id="sueroterapia1-box${i}" class="input ingreso" placeholder="Sueroterapia 1"></td>
-		        </tr>
-
-			<tr>
-			<td>Sueroterapia 2</td>
- 			<td><input type="number" id="sueroterapia2-box${i}" class="input ingreso" placeholder="Sueroterapia 2"></td>
-   			</tr>
-
-			<tr>
-    		      <td>Sueroterapia 3</td>
-                      <td><input type="number" id="sueroterapia3-box${i}" class="input ingreso" placeholder="Sueroterapia 3"></td>
-    			</tr>
-    
-			<tr>
-   			<td>Medicación</td>
-  			<td><input type="number" id="medicacion-box${i}" class="input ingreso" placeholder="Medicación"></td>
-			</tr>
-   			<tr>
-			 <td>Sangre/Plasma</td> <td><input type="number" id="sangreplasma-box${i}" class="input ingreso" placeholder="Sangre/Plasma"></td>
- 	
-  			<tr>
-  			<td>Agua Endógena</td>
-                        <td><input id="agua-endogena-box${i}" class="input readonly" type="number" placeholder="Agua Endógena" readonly></td>
+            <div class="table-container">
+                <table class="table is-bordered is-striped is-hoverable tabla-ingresos">
+                    <thead>
+                        <tr>
+                            <th>Ingresos</th>
+                            <th>Valor</th>
                         </tr>
-                         <tr>
-			<td>Oral</td>
- 			<td><input type="number" id="oral-box${i}" class="input ingreso" placeholder="Oral"></td>
-  	
-			<tr>
-     			<td>Enteral</td>
- 			<td><input type="number" id="enteral-box${i}" class="input ingreso" placeholder="Enteral"></td>
- 			</tr>
+                    </thead>
+    <tbody>
+        <tr>
+            <td>Midazolán</td>
+            <td><input id="midazolam-box${i}" class="input ingreso" type="number" placeholder="Midazolán"></td>
+        </tr>
+		<tr>
+            <td>Fentanest</td>
+            <td><input id="fentanest-box${i}" class="input ingreso" type="number" placeholder="Fentanest"></td>
+        </tr>
+        <tr>
+            <td>Propofol</td>
+            <td><input id="propofol-box${i}" class="input ingreso" type="number" placeholder="Propofol"></td>
+        </tr>
+        <tr>
+            <td>Remifentanilo</td>
+            <td><input id="remifentanilo-box${i}" class="input ingreso" type="number" placeholder="Remifentanilo"></td>                                 
+        </tr>
+        <tr>
+            <td>Dexdor</td>
+            <td><input id="dexdor-box${i}" class="input ingreso" type="number" placeholder="Dexdor"></td>
+        </tr>
+        <tr>
+            <td>Noradrenalina</td>
+            <td><input id="noradrenalina-box-${i}" class="input ingreso" type="number" placeholder="Noradrenalina"></td>
+        </tr>
+        <tr>
+            <td>Insulina</td>
+            <td><input id="insulina-box${i}" class="input ingreso" type="number" placeholder="Insulina"></td>
+		</tr>
+        <tr>
+            <td>Sueroterapia 1</td>
+            <td><input type="number" id="sueroterapia1-box${i}" class="input ingreso" placeholder="Sueroterapia 1"></td>
+        </tr>
+        <tr>
+            <td>Sueroterapia 2</td>
+            <td><input type="number" id="sueroterapia2-box${i}" class="input ingreso" placeholder="Sueroterapia 2"></td>
+        </tr>
+        <tr>
+            <td>Sueroterapia 3</td>
+            <td><input type="number" id="sueroterapia3-box${i}" class="input ingreso" placeholder="Sueroterapia 3"></td>
+        </tr        
+        <tr>
+            <td>Medicación</td>
+            <td><input type="number" id="medicacion-box${i}" class="input ingreso" placeholder="Medicación"></td>
+        </tr>
+        <tr>
+            <td>Sangre/Plasma</td> <td><input type="number" id="sangreplasma-box${i}" class="input ingreso" placeholder="Sangre/Plasma"></td>
+        <tr>
+            <td>Agua Endógena</td>
+            <td><input id="agua-endogena-box${i}" class="input readonly" type="number" placeholder="Agua Endógena" readonly></td>
+        </tr>
+        <tr>
+		<td>Oral</td>
+        <td><input type="number" id="oral-box${i}" class="input ingreso" placeholder="Oral"></td>
 
-			<tr>
-  			<td>Parenteral</td>
- 			<td><input type="number" id="parenteral-box${i}" class="input ingreso" placeholder="Parenteral"></td>
- 			</tr>
-                        </tbody>
+		<tr>
+            <td>Enteral</td>
+            <td><input type="number" id="enteral-box${i}" class="input ingreso" placeholder="Enteral"></td>
+        </tr>
+		<tr>
+            <td>Parenteral</td>
+            <td><input type="number" id="parenteral-box${i}" class="input ingreso" placeholder="Parenteral"></td>
+        </tr>
+    </tbody>
+        <tfoot>
+        <tr>
+            <th>Total Ingresos</th>
+            <td><input id="total-ingresos-box${i}" class="input readonly total-ingresos" type="number"  placeholder="Total Ingresos" readonly></td>
+        </tr>
+    </tfoot>
 
-			<tfoot>
-                            <tr>
-                                <th>Total Ingresos</th>
-                                <td><input id="total-ingresos-box${i}" class="input readonly total-ingresos" type="number"  placeholder="Total Ingresos" readonly></td>
-                                </tr>
-			                        
-                        </tfoot>
+</thead>
+    </table>
+        <div class="buttons is-centered">
+            <button class="button is-danger is-rounded is-active" onclick="clearData(${i})">Borrar Datos</button>
+        </div>  
 
-    		<tr>
- 		</thead>
-   		
-
-
-
-
-                    </table>
-
-		 </div>
-                <div class="buttons is-centered">
-                    <button class="button is-danger is-rounded is-active" onclick="clearData(${i})">Borrar Datos</button>
-                </div>        
-		
-                
-
-               
             `;
             
             boxContainer.appendChild(box);
@@ -699,11 +473,6 @@ document.addEventListener("DOMContentLoaded", () => {
         table.style.width = maxWidth + "px";
     });
 });
-
-
-
-
-
 
 
 </script>
