@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+
+}
 body {
     margin: 0;
     font-family: sans-serif;
@@ -7,24 +11,16 @@ body {
 }
 .flexbox {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
+    margin: 20px;
     justify-content: center;
-    align-items: CENTER;
-    gap: 60px;
+    align-items: center;
+    height: 600px;
 }
-.box {
-    margin-top: 60PX;
-    padding: 40px;
-    background-color: #c7c0bf;
-    font-size: 30px;
-    font-weight: bold;
-    border-radius: 45px;
-    text-align: center;
 
-}
 .box-img {
     border-radius: 45px;
-    max-width: 80%;
+    max-width: 70vw;
 
 }
