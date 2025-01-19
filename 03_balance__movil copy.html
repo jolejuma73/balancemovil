@@ -1,14 +1,11 @@
-<!--funciona las horas y los cálculos de horas-->
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Balances Nocturnos</title>
+    <title>03_balance__movil copy</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="02_balance__movil.css">
+    <link rel="stylesheet" href="03_balance__movil copy.css">
     <style>
         #box-container {
             min-height: 200px; /* Ajustar la altura mínima */
@@ -50,7 +47,7 @@
             <div id="box-container" class="box-container">
                 <!-- Boxes se generarán dinámicamente -->
             </div>
-            <button id="borrar-datos" class="button is-danger">Borrar Datos</button>
+            <button id="borrar-datos" class="button is-danger" onclick="borrarDatos()">Borrar Datos</button>
         </div>
     </section>
 
@@ -121,8 +118,10 @@
                         <td><input id="drenajes" class="input perdida" type="number" placeholder="Drenajes"></td>
                     </tr>
                     <tr>
-                        <td>Pérdidas Insensibles</td><td><input id="perdidas-insensibles-box${i}" class="input readonly" type="number" placeholder="Pérdidas Insensibles" readonly></td>
-                        <tr>
+                        <td>Pérdidas Insensibles</td>
+                        <td><input id="perdidas-insensibles" class="input readonly" type="number" placeholder="Pérdidas Insensibles" readonly></td>
+                    </tr>
+                    
                     <tr>	
                         <td>Cálculo de Vómitos, Sudor, Fiebre y Tqn</td>
                         <td><input type="number" id="fuerafluidos-box${i}" class="input readonly" placeholder="Vómitos,Sudor,Fiebre,Tqn" readonly>
@@ -142,6 +141,7 @@
 
                 </tbody>
             </table>
+            <button id="borrar-datos" class="button is-danger" onclick="borrarDatos()">Borrar Datos</button>
 
             <h2 class="title">Ingresos</h2>
             <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
@@ -176,6 +176,53 @@
                         <td>Noradrenalina</td>
                         <td><input id="noradrenalina" class="input ingreso" type="number" placeholder="Noradrenalina"></td>
                     </tr>
+                    <tr>
+                        <td>Insulina</td>
+                        <td><input id="insulina" class="input ingreso" type="number" placeholder="Insulina"></td>
+                    </tr>
+                    <tr>
+                        <td>Sueroterapia 1</td>
+                        <td><input type="number" id="sueroterapia1" class="input ingreso" placeholder="Sueroterapia 1"></td>
+                    </tr>
+                    <tr>
+                        <td>Sueroterapia 2</td>
+                        <td><input type="number" id="sueroterapia2" class="input ingreso" placeholder="Sueroterapia 2"></td>
+                    </tr>
+                    <tr>
+                        <td>Sueroterapia 3</td>
+                        <td><input type="number" id="sueroterapia3" class="input ingreso" placeholder="Sueroterapia 3"></td>
+                    </tr>        
+                    <tr>
+                        <td>Medicación</td>
+                        <td><input type="number" id="medicacion" class="input ingreso" placeholder="Medicación"></td>
+                    </tr>
+                    <tr>
+                        <td>Sangre/Plasma</td> <td><input type="number" id="sangreplasma" class="input ingreso" placeholder="Sangre/Plasma"></td>
+                    <tr>
+                        <td>Agua Endógena</td>
+                        <td><input id="agua-endogena" class="input readonly" type="number" placeholder="Agua Endógena" readonly></td>
+                    </tr>
+                    <tr>
+                    <td>Oral</td>
+                    <td><input type="number" id="oral" class="input ingreso" placeholder="Oral"></td>
+            
+                    <tr>
+                        <td>Enteral</td>
+                        <td><input type="number" id="enteral" class="input ingreso" placeholder="Enteral"></td>
+                    </tr>
+                    <tr>
+                        <td>Parenteral</td>
+                        <td><input type="number" id="parenteral" class="input ingreso" placeholder="Parenteral"></td>
+                    </tr>
+                </tbody>
+                    <tfoot>
+                    <tr>
+                        <th>Total Ingresos</th>
+                        <td><input id="total-ingresos" class="input readonly total-ingresos" type="number"  placeholder="Total Ingresos" readonly></td>
+                    </tr>
+                </tfoot>
+
+
                 </tbody>
             </table>
 
@@ -189,6 +236,69 @@
     </section>
 
     <script>
+        /*--borrar datos--*/
+
+        document.getElementById('borrar-datos').addEventListener('click', borrarDatos);
+
+
+        /*--borrarDatos--*/
+
+        function borrarDatos() {
+    const boxName = document.getElementById('selected-box-title').textContent.trim();
+    if (boxName === "Ninguno") {
+        alert("Por favor, selecciona un Box primero.");
+        return;
+    }
+
+    // Verificar si el boxName existe en la estructura de datos
+    if (!boxData[boxName]) {
+        alert(`El box ${boxName} no tiene datos inicializados.`);
+        return;
+    }
+
+    // Reiniciar los valores del box en la estructura de datos
+    boxData[boxName] = {
+        peso: 0,
+        horas: 0,
+        fiebre37Horas: 0,
+        fiebre38Horas: 0,
+        fiebre39Horas: 0,
+        rpm25Horas: 0,
+        rpm35Horas: 0,
+        perdidas: {
+            fiebre37: "0.00",
+            fiebre38: "0.00",
+            fiebre39: "0.00",
+            rpm25: "0.00",
+            rpm35: "0.00",
+            insensibles: "0.00",
+        },
+        ingresos: {
+            aguaEndogena: "0.00",
+        },
+    };
+
+    // Reiniciar los campos visibles en la UI
+    document.querySelectorAll('input').forEach((input) => {
+        if (input.type === 'number') {
+            input.value = "";
+        }
+    });
+
+    // Actualizar la interfaz de usuario
+    updateUI(boxName);
+
+    alert(`Todos los datos del ${boxName} han sido borrados.`);
+}
+
+
+
+
+
+
+
+
+
         /*--validar horas--*/
         function validarHoras(input) {
     const maxHoras = 24;
@@ -211,10 +321,14 @@
         const rpm35HorasInput = document.getElementById('rpm35Horas');
 
         const boxData = {};
-            /*--funcion calcular horas--*/
+            
+        
+        /*--funcion calcular horas--*/
+    
         function calculateLosses(boxName) {
     const data = boxData[boxName];
     const peso = data.peso || 0;
+    const horasDesdeIngreso = data.horas || 0;
 
     // Validar horas
     data.fiebre37Horas = Math.min(Math.max(data.fiebre37Horas || 0, 0), 24);
@@ -229,19 +343,47 @@
     data.perdidas.rpm25 = (0.2 * peso * data.rpm25Horas).toFixed(2);
     data.perdidas.rpm35 = (0.3 * peso * data.rpm35Horas).toFixed(2);
 
+    // Calcular pérdidas insensibles
+    data.perdidas.insensibles = (0.5 * peso * horasDesdeIngreso).toFixed(2);
+
+    // Calcular agua endógena
+    if (horasDesdeIngreso <= 20) {
+    data.ingresos.aguaEndogena = (horasDesdeIngreso * 20).toFixed(2);
+} else if (horasDesdeIngreso <= 24) {
+    data.ingresos.aguaEndogena = 400;
+} else {
+    data.ingresos.aguaEndogena = 0; // Default en caso de error
+}
+
+
     updateUI(boxName);
 }
 
 
-        function updateUI(boxName) {
-            const data = boxData[boxName];
+/*--En la función updateUI, asegúrate de que el valor de agua endógena se actualice correctamente en la tabla--*/
 
-            document.getElementById('fiebre37').value = data.perdidas.fiebre37 || "0.00";
-            document.getElementById('fiebre38').value = data.perdidas.fiebre38 || "0.00";
-            document.getElementById('fiebre39').value = data.perdidas.fiebre39 || "0.00";
-            document.getElementById('rpm25').value = data.perdidas.rpm25 || "0.00";
-            document.getElementById('rpm35').value = data.perdidas.rpm35 || "0.00";
-        }
+function updateUI(boxName) {
+    const data = boxData[boxName];
+
+    document.getElementById('peso').value = data.peso || "";
+    document.getElementById('horas').value = data.horas || "";
+    document.getElementById('fiebre37Horas').value = data.fiebre37Horas || "";
+    document.getElementById('fiebre38Horas').value = data.fiebre38Horas || "";
+    document.getElementById('fiebre39Horas').value = data.fiebre39Horas || "";
+    document.getElementById('rpm25Horas').value = data.rpm25Horas || "";
+    document.getElementById('rpm35Horas').value = data.rpm35Horas || "";
+
+    document.getElementById('fiebre37').value = data.perdidas.fiebre37 || "0.00";
+    document.getElementById('fiebre38').value = data.perdidas.fiebre38 || "0.00";
+    document.getElementById('fiebre39').value = data.perdidas.fiebre39 || "0.00";
+    document.getElementById('rpm25').value = data.perdidas.rpm25 || "0.00";
+    document.getElementById('rpm35').value = data.perdidas.rpm35 || "0.00";
+    document.getElementById('perdidas-insensibles').value = data.perdidas.insensibles || "0.00";
+    document.getElementById('agua-endogena').value = data.ingresos.aguaEndogena || "0.00";
+}
+
+
+
 
         function addEventListeners() {
             pesoInput.addEventListener('input', () => {
@@ -258,7 +400,17 @@ document.querySelectorAll('input[type="number"]').forEach((input) => {
         input.addEventListener('input', () => validarHoras(input));
     }
 });
+        /*--recalcular las pérdidas insensibles cuando cambie el campo de horas desde ingreso--*/
 
+
+
+horasInput.addEventListener('input', () => {
+    const boxName = selectedBoxTitle.textContent;
+    if (boxName !== "Ninguno") {
+        boxData[boxName].horas = parseFloat(horasInput.value) || 0;
+        calculateLosses(boxName);
+    }
+});
 
             [fiebre37HorasInput, fiebre38HorasInput, fiebre39HorasInput, rpm25HorasInput, rpm35HorasInput].forEach(input => {
                 input.addEventListener('input', (e) => {
@@ -272,6 +424,8 @@ document.querySelectorAll('input[type="number"]').forEach((input) => {
             });
         }
 
+            /*--En el bloque donde inicializas boxData, incluye la clave ingresos:--*/
+
         for (let i = 1; i <= 12; i++) {
             boxData[`Box ${i}`] = {
                 peso: 0,
@@ -282,6 +436,8 @@ document.querySelectorAll('input[type="number"]').forEach((input) => {
                 rpm25Horas: 0,
                 rpm35Horas: 0,
                 perdidas: {},
+                ingresos: {}, // Agregar ingresos
+
             };
 
             const link = document.createElement('a');
