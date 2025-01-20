@@ -223,4 +223,12 @@ color: blue; /* Para resaltar balance positivo */
  .title is-4 {
     text-align: center;
  }
+ .box-link.is-active {
+    font-weight: bold;
+    color: #fff;
+    background-color: #3273dc;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
     
