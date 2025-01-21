@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>04_bm_sin_js</title>
-    <link rel="stylesheet" href="04_bm_sin_js.css">
+    <title>04_balance</title>
+    <link rel="stylesheet" href="04_balance.css">
 </head>
 
 <body>
@@ -41,7 +41,7 @@
     <section id="box-data">
         <div class="container__datos_item">
             <div id="selected-box">
-                <strong>Box seleccionado: Ninguno</strong>
+                <h2>Box seleccionado: Ninguno</h2>
             </div>
             <div class="input-container">
                 <div class="input-group">
@@ -60,7 +60,7 @@
 
     <section id="box-losses">
         <div class="container-perdidas-item">
-            <h2 class="title">Pérdidas</h2>
+            <h2>Pérdidas</h2>
             <table class="table__perdidas">
                 <thead>
                     <tr>
@@ -141,10 +141,11 @@
                 </tfoot>
             </table>            
         </div>
+        <div class="button"><button id="borrar-datos" onclick="borrarDatos()">Borrar Datos</button>
+        </div>
     </section>
 
-    <div class="button"><button id="borrar-datos" onclick="borrarDatos()">Borrar Datos</button>
-    </div>
+    
 
 
 <!-------INGRESOS----------->
@@ -231,29 +232,34 @@
                 </tbody>
             </table>            
         </div>
+        <div class="button"><button id="borrar-datos"  onclick="borrarDatos()">Borrar Datos</button>
+        </div>
     </section>
 
-<div class="button"><button id="borrar-datos"  onclick="borrarDatos()">Borrar Datos</button>
-</div>
+
 
     
     <!---------------TOTALES Y BALANCES------------>
 
     <section id="box-summary">
         <div class="container__totales-item">
-            <tr>
-                <th>Total Ingresos</th>
-                <td><input id="total-ingresos" class="input readonly total-ingresos" type="number"  placeholder="Total Ingresos" readonly></td>
-            </tr>
-            <tr>
-                <th>Total Pérdidas</th>
-                <td><input id="total-perdidas-box${i}" class="input readonly total-perdidas" type="number" placeholder="Total Pérdidas" readonly></td>
-            </tr>
-            <tr>
-                <th>Balance Total</th>
-                <td colspan="3"><input id="balance-box${i}" class="input readonly balance-field" type="number" placeholder="Balance" readonly></td>
-            </tr>
+            <table class="table-summary">
+                <tr>
+                    <th>Total Ingresos</th>
+                    <td><input id="total-ingresos" class="input readonly total-ingresos" type="number" placeholder="Total Ingresos" readonly></td>
+                </tr>
+                <tr>
+                    <th>Total Pérdidas</th>
+                    <td><input id="total-perdidas" class="input readonly total-perdidas" type="number" placeholder="Total Pérdidas" readonly></td>
+                </tr>
+                <tr>
+                    <th>Balance Total</th>
+                    <td colspan="3"><input id="balance-total" class="input readonly balance-field" type="number" placeholder="Balance" readonly></td>
+                </tr>
+            </table>
         </div>
     </section>
+    
+
 </body>
 </html>

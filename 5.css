@@ -102,12 +102,13 @@ section {
 
 /* Contenedor del box seleccionado */
 .container__datos_item {
-    text-align: center;
+    text-align: start;
     margin: 10px 0;
     background-color: #e8f5e9; /* Verde claro */
-    padding: 10px;
+    padding: 30px;
     border-radius: 5px;
     border: 1px solid #4caf50;
+
 }
 
 /* Estilo de los campos de texto */
@@ -117,8 +118,18 @@ section {
     border: 1px solid #ccc;
     border-radius: 3px;
     width: 100px;
-}
 
+}
+.input-container {
+    text-align: center;
+}
+#selected-box {
+    border-bottom:  1px  solid #272727;
+    color: #272727;
+    text-align: center;
+    padding-bottom: 15px;
+
+}
 
 /*----5. Estilos Específicos para las Secciones
 -----*/
@@ -153,6 +164,61 @@ section:nth-child(5) {
     background-color: #ffcc80; /* Amarillo claro */
 }
 
+
+/* =============================== */
+/*         PÉRDIDAS E INGRESOS     */
+/* =============================== */
+
+/* Contenedor general para las tablas de pérdidas e ingresos */
+.container-perdidas,
+.container-ingresos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.table-header {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.table-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+.table-row .concepto,
+.table-row .valor {
+    flex: 1;
+    text-align: left;
+}
+
+/* Estilo de los inputs en pérdidas e ingresos */
+.table-row .valor input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Alineación de pérdidas e ingresos */
+.container-perdidas .table-row .valor input,
+.container-ingresos .table-row .valor input {
+    text-align: right;
+}
+
+
 /*--6. Estilos del Botón "Borrar Datos"--*/
 
 /* =============================== */
@@ -161,8 +227,10 @@ section:nth-child(5) {
 
 /* Botón de borrar datos */
 .button {
-    text-align: center;
-    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
 }
 
 .button #borrar-datos {
@@ -178,4 +246,49 @@ section:nth-child(5) {
 
 .button #borrar-datos:hover {
     background-color: #d32f2f;
+}
+
+/* Estilo para la sección fija */
+#box-summary {
+    position: fixed; /* Fija la sección */
+    bottom: 0; /* Posiciónala en la parte inferior */
+    left: 0; /* Alineada al borde izquierdo */
+    width: 100%; /* Ocupa todo el ancho */
+    background-color: #f8f9fa; /* Color de fondo */
+    border-top: 2px solid #000; /* Borde superior */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+    padding: 10px; /* Espaciado interno */
+    z-index: 1000; /* Asegúrate de que esté sobre otros elementos */
+}
+
+/* Estilo interno para la tabla de totales */
+#box-summary .container__totales-item {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+#box-summary .container__totales-item table {
+    width: 100%; /* Ocupa el ancho disponible */
+}
+
+#box-summary th, #box-summary td {
+    padding: 5px;
+    font-size: 16px;
+}
+
+#box-summary input {
+    font-size: 14px;
+    padding: 5px;
+    width: 80px; /* Tamaño fijo para que sea uniforme */
+    text-align: center; /* Centra el texto */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+#box-earings {
+    padding-bottom: 100px; /* Espacio adicional para evitar cortes en el contenido */
+    margin-bottom: 20px; /* Espacio extra para separar esta sección de otros elementos */
 }
