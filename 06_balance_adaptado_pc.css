@@ -15,17 +15,19 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
+    background-color: #e3f2fa;
+
 }
 
 /* Mantener el encabezado centrado */
-h1.title {
+h1 {      
     text-align: center;
     color: #333;
     margin: 20px 0;
 }
 /*-- para adaptarse a pantallas--*/
 
-section {
+section {   /*--CAJA NAVIGATION  --*/  
     width: 90%;
     max-width: 1200px;
     padding: 20px;
@@ -42,17 +44,15 @@ section {
 /* =============================== */
 
 /* Configuración para #box-navigation */
-#box-navigation {
+#box-navigation {   /*--CAJA NAVIGATION  --*/
     width: 100%;
     text-align: center;
-}
-#box-navigation {
     margin-top: 10px; /* Espacio adicional después del título */
     max-width: 1705px; /* Limita el tamaño máximo */
-
+    background-color: #e3f2ff;
 }
 
-.container__nav ul {
+.container__nav ul {  /*--gap de los boxes  --*/
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -67,8 +67,8 @@ section {
     text-align: center;
 }
 
-.container__nav ul li a {
-    display: block;
+.container__nav ul li a {     /*--boxes--*/    
+        display: block;
     padding: 10px;
     background-color: #f4f4f4;
     border: 1px solid #ccc;
@@ -78,32 +78,25 @@ section {
     font-weight: bold;
     transition: all 0.3s;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
-
 }
-
 
 .container__nav ul li a:hover {
-    background-color: #ddd;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    
-}
-
-
-.container__nav ul li.selected a {
-    background-color: #4caf50;
-    color: #fff;
-}
+    background-color: #e0f0fa; /* Fondo más claro */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra visible */
+    transform: scale(1.1); /* Pequeño efecto de zoom */
+    transition: all 0.3s ease; /* Animación suave */
+    }
 
 /* =============================== */
 /*             DATOS              */
 /* =============================== */
 
-#box-data {
+#box-data {    /*--  CAJA DATA  --*/
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    background-color: #ededed;
+    background-color: #e3f2ff;
     margin-bottom: 20px; /* Espacio entre box-data y la fila */
     width: 100%; /* Ocupa todo el ancho del contenedor */
     max-width: 1705px; /* Limita el tamaño máximo */
@@ -113,27 +106,27 @@ section {
 }
 
 
-#selected-box {
+#selected-box {   /*--box seleccionado:ninguno--*/
     font-weight: bold;
     color: #333;
     text-align: center;
 }
 
-.input-container {
+.input-container {   /*--  peso y horas desde ingreso y sus input--*/ 
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    justify-content: center;
+    justify-content: center; 
 }
 
-.input-group {
+.input-group {    /*--  peso y horas desde ingreso y sus input--*/   
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 5px;
 }
 
-.input-group .label {
+.input-group .label {   /*--  peso y horas desde ingreso--*/
     font-weight: bold;
 }
 
@@ -148,77 +141,77 @@ section {
 /*             PERDIDAS           */
 /* =============================== */
 
-.row {
+.row {  /*--separación entre perdidas, ingresos y summary--*/
     display: flex;
-    flex-wrap: wrap; /* Permite que las cajas se apilen en pantallas pequeñas */
-    gap: 20px; /* Espaciado entre las cajas */
-    justify-content: center; /* Centra las cajas horizontalmente */
-    align-items: stretch; /* Hace que las cajas tengan la misma altura */
-    margin: 0 auto; /* Centra las cajas y elimina márgenes laterales */
+    flex-wrap: wrap; 
+    gap: 20px; 
+    justify-content: center; 
+    align-items: stretch; 
+    margin: 0 auto;  
 }
 
-/* Cajas individuales dentro de la fila */
 .row > section {
-    flex: 1; /* Hace que ambas cajas ocupen el mismo ancho proporcional */
-    min-width: 300px; /* Ancho mínimo */
-    max-width: 600px; /* Ancho máximo */
-    display: flex; /* Habilita flexbox dentro de las cajas */
-    flex-direction: column; /* Organiza el contenido en columna */
-    justify-content: space-between; /* Distribuye los elementos dentro de la caja */
-    margin: 0 auto; /* Centra las cajas y elimina márgenes laterales */
-    width: 100%; /* Asegura que ocupen el ancho completo */
-    max-width: 1200px; /* Mantiene un límite máximo de ancho */
+    flex: 1; 
+    min-width: 300px; 
+    max-width: 600px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    margin: 0 auto; 
+    width: 100%; 
+    max-width: 1200px;
 
 }
 /* Caja de Pérdidas */
 
-.table__perdidas {
-    width: 100%; /* Asegura que ocupen todo el ancho del contenedor */
-    height: 104%; /* Extiende la tabla para llenar la altura disponible */
-    border-collapse: collapse; /* Estilo compacto para las tablas */
-    table-layout: fixed; /* Ancho uniforme para las columnas */
+.table__perdidas {     /*--TABLA PERDIDAS  MENOS READONLY, CO, VA Y TI--*/
+    width: 100%; 
+    height: 104%; 
+    border-collapse: collapse; 
+    table-layout: fixed; 
 }
 
-.table__perdidas td {
-    vertical-align: top; /* Alinea el contenido de las celdas en la parte superior */
-    padding: 10px; /* Espaciado interno de las celdas */
-}
-/* Ajustar el tamaño y separación de los inputs en las tablas de pérdidas e ingresos */
-.table__perdidas td input {
-    width: 90%; /* Mantener un tamaño uniforme */
-    margin: 5px 0; /* Separación vertical */
-    padding: 5px; /* Espaciado interno */
-    box-sizing: border-box; /* Incluir padding y bordes en el ancho total */
+.table__perdidas td {   
+    vertical-align: top; 
+    padding: 10px;
 }
 
-.table__perdidas td {
-    text-align: center; /* Centrar el contenido */
-    padding: 5px; /* Define un padding consistente */
-    vertical-align: top; /* Alinea el contenido en la parte superior */
-    border: none; /* Elimina bordes */
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* Sombra ligera */
-    margin: 0; /* Asegúrate de que no haya márgenes */
-    padding: 5px; /* Ajusta el padding interno */
-    background-color: transparent; /* Asegura un fondo limpio */
+.table__perdidas td input {/*--input perdidas menos readonly--*/
+    width: 90%; 
+    margin: 5px 0; 
+    padding: 5px; 
+    box-sizing: border-box; 
 }
 
-.table__perdidas td .input {
+.table__perdidas td {  /*--TABLA PERDIDAS  MENOS READONLY, CO, VA Y TI--*/
+    text-align: center; 
+    padding: 5px; 
+    vertical-align: top; 
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); 
+    margin: 0; 
+    padding: 5px; 
+    background-color: transparent;   
+
+}
+
+.table__perdidas td .input {  /*--TODOS LOS INPUT PERDIDAS--*/
     display: block; /* Forzar que cada input ocupe toda la línea */
 }
-
-/* Añadir espacio específico entre los inputs dentro de la misma celda */
-.table__perdidas td .input + .input {
-    margin-top: 5px; /* Espacio entre los inputs en la misma celda */
+.table__perdidas td .input + .input { /*--fiebre y rpm--*/
+    margin-top: 5px; 
+    background-color: transparent;
+    border: none;
 }
 
 /* Redondear esquinas de las cajas de Pérdidas e Ingresos */
 /* Caja de Pérdidas */
-#box-losses {
+#box-losses {   /*--TODA LA CAJA PERDIDAS MENOS READONLY, CO,VA y TP  --*/
     background-color: #e3f2fd;
-    padding-bottom: 20px; /* Espacio adicional para evitar cortes en el contenido */
-    border-radius: 10px; /* Ajusta el valor para mayor o menor redondez */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); /* Sombra más suave */
-    margin-bottom: 174px; /* Espacio extra para separar esta sección de otros elementos */
+    padding-bottom: 20px; 
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); 
+    margin-bottom: 174px; 
 }
 
 .container-perdidas-item {
@@ -229,37 +222,36 @@ section {
     animation-timeline: view();
     animation-range: cover 10% contain 20%;
     margin-bottom: 85px;
-    background-color: transparent;
+    background-color: transparent;  
 }
 
-.table__perdidas {
+.table__perdidas {  /*--perdidas menos readonly,  co,va y tp--*/
     width: 100%;
     border-collapse: collapse;
-    margin: 0 ; /* Centra las tablas */
+    margin: 0 ;
     table-layout: fixed;
-    padding: 0; /* Elimina padding interno si es innecesario */
-    box-shadow: none; /* Elimina cualquier sombra de la tabla */
-
+    padding: 0; 
+    box-shadow: none;   
 }
 
-.table__perdidas th, .table__perdidas td {
+.table__perdidas th, .table__perdidas td {   /*--perdidas menos readonly,  co,va y tp--*/
     padding: 10px;
     border: 1px solid #ddd;
     text-align: left;
     width: 50%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);   
+
 }
 
-.table__perdidas th {
-    background-color: #bbdefb;
+.table__perdidas th {   /*--Concepto, Valor, Total Pérdidas de pérdidas--*/
+    background-color: #cde8f7;
     font-weight: bold;
     text-align: center;
-    width: 100%; /* Asegura que las tablas ocupen el ancho completo */
+    width: 100%; 
     border-collapse: collapse;
-    margin: 0 auto; /* Centra las tablas */
-
+    margin: 0 auto; 
 }
-.table__perdidas th, .table__perdidas td {
+.table__perdidas th, .table__perdidas td {  /*--todo perdidas menos readonly--*/
     padding: 10px;
     border: 1px solid #ddd;
     text-align: left;
@@ -277,19 +269,21 @@ section {
 }
 /* Ajuste para los inputs */
 .table__perdidas .input {    /*--input perdidas sin PI, VO, TP--*/       
-    width: 95%; /* Ajusta este valor según sea necesario */
+    width: 95%; 
     margin: 0 auto;
     display: block;
 }
 
 /* Alinear las columnas de concepto y valor */
-.table__perdidas th:first-child, .table__perdidas td:first-child {
-    text-align: left;    box-shadow: none; /* Elimina cualquier sombra de la tabla */
+.table__perdidas th:first-child, .table__perdidas td:first-child { /*--desde concepto a TP--*/
+    text-align: left;    
+    box-shadow: none; 
 
 }
 
-.table__perdidas th:last-child, .table__perdidas td:last-child {
-    text-align: right;    box-shadow: none; /* Elimina cualquier sombra de la tabla */
+.table__perdidas th:last-child, .table__perdidas td:last-child {  /*input pérdidas menos readonly--*/
+    text-align: right;    
+    box-shadow: none; 
 
 }
 
@@ -300,51 +294,44 @@ section {
 /* Caja de Ingresos */
 
 
-.table__ingresos {
-    width: 100%; /* Asegura que las tablas ocupen todo el ancho */
-    height: 100%; /* Extiende la altura al contenedor */
+.table__ingresos {  /*--TABLA INGRESOS MENOS CO, VA Y TI--*/
+    width: 100%; 
+    height: 100%; 
     border-collapse: collapse; /* Une los bordes para un diseño más limpio */
     table-layout: fixed; /* Distribuye columnas de manera uniforme */
 }
 
-.table__ingresos td {
-    vertical-align: top; /* Alinea el contenido de las celdas en la parte superior */
-    padding: 10px; /* Espaciado interno de las celdas */
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* Sombra ligera */
-
+.table__ingresos td input {  
+    width: 90%; 
+    margin: 5px 0;
+    padding: 5px; 
+    box-sizing: border-box; 
 }
-.table__ingresos td input {
-    width: 90%; /* Mantener un tamaño uniforme */
-    margin: 5px 0; /* Separación vertical */
-    padding: 5px; /* Espaciado interno */
-    box-sizing: border-box; /* Incluir padding y bordes en el ancho total */
-}
-.table__ingresos td {
-    text-align: center; /* Centrar el contenido */
-    padding: 5px; /* Define un padding consistente */
-    vertical-align: top; /* Alinea el contenido en la parte superior */
+.table__ingresos td {  /*--TABLA INGRESOS MENOS READONLY, CO, VA Y TI--*/
+    box-sizing: border-box; 
+    text-align: center;
+    padding: 5px; 
+    vertical-align: top; 
     border: 1px solid #ddd;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    margin: 0; /* Asegúrate de que no haya márgenes */
-    padding: 0px; /* Ajusta el padding interno */
-    background-color: transparent; /* Asegura un fondo limpio */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0; 
+    padding: 0px; 
+    background-color: transparent; 
 }
-.table__ingresos td .input {/*-input ingresos--*/
+.table__ingresos td .input {/*-TODOS INPUT INGRESOS--*/ 
     display: block; /* Forzar que cada input ocupe toda la línea */
 }
-/* Añadir espacio específico entre los inputs dentro de la misma celda */
 
-.table__ingresos td .input + .input {
-    margin-top: 5px; /* Espacio entre los inputs en la misma celda */
+.table__ingresos td .input + .input {    
+    margin-top: 5px; 
 }
 
-/* Redondear esquinas de las cajas de Pérdidas e Ingresos */
 /* Caja de Ingresos */
-#box-earings {
+#box-earings {    /*--TODA LA CAJA INGRESOS MENOS READONLY, CO,VA y TI  --*/
     background-color: #fffde7;
-    padding-bottom: 20px; /* Espacio adicional para evitar cortes en el contenido */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); /* Sombra más suave */
-    margin-bottom: 175px; /* Espacio extra para separar esta sección de otros elementos */
+    padding-bottom: 20px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); 
+    margin-bottom: 175px; 
 }
 
 .container-ingresos-item {/*--caja ingresos--*/
@@ -358,9 +345,9 @@ section {
     background-color: transparent;}
 
 .table__ingresos {
-    width: 100%; /* Asegura que las tablas ocupen el ancho completo */
+    width: 100%; 
     border-collapse: collapse;
-    margin: 0 ; /* Centra las tablas */
+    margin: 0 ; 
     table-layout: fixed;
     padding: 0;
 
@@ -374,7 +361,7 @@ section {
     width: 50%;
 }
 
-.table__ingresos th {
+.table__ingresos th {   /*--Concepto, Valor y Total Ingresos de Ingresos--*/
     background-color: #fff9c4;
     font-weight: bold;
     text-align: center;
@@ -405,11 +392,11 @@ section {
 }
 
 /* Alinear las columnas de concepto y valor */
-.table__ingresos th:first-child,.table__ingresos td:first-child {
+.table__ingresos th:first-child,.table__ingresos td:first-child {   /**--desde concepto a TI--*/
     text-align: left;
 }
 
-.table__ingresos th:last-child,.table__ingresos td:last-child {
+.table__ingresos th:last-child,.table__ingresos td:last-child {    /*--desde valor a TI menos read only--*/
     text-align: right;
 }
 
@@ -431,7 +418,7 @@ section {
     padding: 10px 20px; /* Espaciado interno */
     width: 100%; /* Adapta el ancho al resto de las cajas */
     max-width: 1705px; /* Limita el tamaño máximo */
-    background-color: #d5ebe8; /* Fondo consistente */
+    background-color: #fceae8; /* Fondo consistente */
     text-align: center; /* Centra el contenido */
     border-top: 2px solid #ccc; /* Línea superior decorativa */
 }
@@ -447,10 +434,10 @@ section {
     text-align: left;
 }
 
-.input.readonly {
-    background-color: #f0f0f0;
+.input.readonly {  /*--PI, VSFT,TP,AE, TI, BA--*/
+    background-color: transparent;
     border: none;
-    text-align: center;
+    text-align: center; 
 }
 
 
@@ -460,26 +447,25 @@ section {
 /*       AJUSTES PARA INPUTS       */
 /* =============================== */
 
-/* Aplicar un ancho consistente a todos los inputs */
 .input {
-    width: 95%; /* Ajustar para que todos tengan el mismo ancho */
+    width: 95%;
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
-    margin-bottom: 5px; /* Espaciado inferior para inputs apilados */
+    margin-bottom: 5px; 
     text-align: center;
-    background-color: transparent;/*--todos los inputs menos los readonly--*/
+    background-color: transparent;
 }
 
-/* Para las celdas con múltiples inputs (en pérdidas) */
+
 .table__perdidas td input {
-    display: block; /* Asegura que los inputs se apilen verticalmente */
-    margin-bottom: 10px; /* Espaciado entre inputs */
+    display: block; 
+    margin-bottom: 10px; 
 }
 
 .table__perdidas td input:last-child {
-    margin-bottom: 0; /* Evitar espaciado en el último input */
+    margin-bottom: 0;
 }
 
 
@@ -529,15 +515,6 @@ input[readonly]:focus {
 /*     ANIMACIONES BALANCE      */
 /*==============================*/
 
-/*-----  ANIMACIONES BOX NAVIGATION  ----*/
-/*--Haz que los botones de navegación cambien suavemente de color cuando el usuario los pase con el mouse. Esto puede lograrse con la propiedad transition.--*/
-
-.container__nav ul li a:hover {
-    background-color: #ddd;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    transform: scale(1.05); /* Efecto de zoom */
-    transition: all 0.3s ease-in-out;
-}
 
 /*  ------ANIMACIONES SECTION------*/
 /*--Usa una animación que deslice las secciones hacia arriba cuando carguen por primera vez.--*/

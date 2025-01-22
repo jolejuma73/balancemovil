@@ -14,24 +14,20 @@
 
     <section id="box-navigation">
         <div class="container__nav">
-            <header class="header__nav">
-                <div class="nav__item">
-                    <ul>
-                        <li class="selected"><a href="#">Box 1</a></li>
-                        <li><a href="#">Box 2</a></li>
-                        <li><a href="#">Box 3</a></li>
-                        <li><a href="#">Box 4</a></li>
-                        <li><a href="#">Box 5</a></li>
-                        <li><a href="#">Box 6</a></li>
-                        <li><a href="#">Box 7</a></li>
-                        <li><a href="#">Box 8</a></li>
-                        <li><a href="#">Box 9</a></li>
-                        <li><a href="#">Box 10</a></li>
-                        <li><a href="#">Box 11</a></li>
-                        <li><a href="#">Box 12</a></li>
-                    </ul>
-                </div>                
-            </header>
+            <ul>
+                <li><a href="#">Box 1</a></li>
+                <li><a href="#">Box 2</a></li>
+                <li><a href="#">Box 3</a></li>
+                <li><a href="#">Box 4</a></li>
+                <li><a href="#">Box 5</a></li>
+                <li><a href="#">Box 6</a></li>
+                <li><a href="#">Box 7</a></li>
+                <li><a href="#">Box 8</a></li>
+                <li><a href="#">Box 9</a></li>
+                <li><a href="#">Box 10</a></li>
+                <li><a href="#">Box 11</a></li>
+                <li><a href="#">Box 12</a></li>
+            </ul>
         </div>
     </section>
 
@@ -76,35 +72,35 @@
                         </tr>
                         <tr>
                             <td>Vómitos Sudor Fiebre Tqn</td>
-                            <td><input id="vomitos" class="input perdida" type="number" placeholder="Vómitos Sudor Fiebre Tqn" readonly></td>
+                            <td><input id="vomitos" class="input perdida" type="number" placeholder="Vómitos Sudor Fiebre Tqn"></td>
                         </tr>
                         <tr>
                             <td>Fiebre >37°C</td>
-                            <td><input id="fiebre37Horas" class="input" type="number" placeholder="Horas con Fiebre >37°C" min="0" max="24"><input id="fiebre37" class="input perdida" type="number" placeholder="Fiebre >37°C" readonly min="0" max="24">
+                            <td><input id="fiebre37Horas" class="input" type="number" placeholder="Horas con Fiebre >37°C" min="0" max="24"><input id="fiebre37" class="input perdida" type="number" placeholder="Cálculo de Fiebre >37°C" readonly min="0" max="24">
                             </td>
                         </tr>
                         <tr>
                             <td>Fiebre >38°C</td>
-                            <td><input id="fiebre38Horas" class="input" type="number" placeholder="Horas con Fiebre >38°C" min="0" max="24"><input id="fiebre38" class="input perdida" type="number" placeholder="Fiebre >38°C" readonly min="0" max="24">
+                            <td><input id="fiebre38Horas" class="input" type="number" placeholder="Horas con Fiebre >38°C" min="0" max="24"><input id="fiebre38" class="input perdida" type="number" placeholder="Cálculo de Fiebre >38°C" readonly min="0" max="24">
                             </td>
                         </tr>
                         <tr>
                             <td>Fiebre >39°C</td>
-                            <td><input id="fiebre39Horas" class="input" type="number" placeholder="Horas con Fiebre >39°C" min="0" max="24"><input id="fiebre39" class="input perdida" type="number" placeholder="Fiebre >39°C" readonly min="0" max="24">
+                            <td><input id="fiebre39Horas" class="input" type="number" placeholder="Horas con Fiebre >39°C" min="0" max="24"><input id="fiebre39" class="input perdida" type="number" placeholder="Cálculo de Fiebre >39°C" readonly min="0" max="24">
                             </td>
                         </tr>
                         <tr>
                             <td>RPM >25</td>
                             <td>
                                 <input id="rpm25Horas" class="input" type="number" placeholder="Horas con RPM >25" min="0" max="24">
-                                <input id="rpm25" class="input perdida" type="number" placeholder="RPM >25" readonly min="0" max="24">
+                                <input id="rpm25" class="input perdida" type="number" placeholder="Cálculo de Rpm>25" readonly min="0" max="24">
                             </td>
                         </tr>
                         <tr>
                             <td>RPM >35</td>
                             <td>
                                 <input id="rpm35Horas" class="input" type="number" placeholder="Horas con RPM >35" min="0" max="24">
-                                <input id="rpm35" class="input perdida" type="number" placeholder="RPM >35" readonly min="0" max="24">
+                                <input id="rpm35" class="input perdida" type="number" placeholder="Cálculo de Rpm >35" readonly min="0" max="24">
                             </td>
                         </tr>
                         <tr>
@@ -123,11 +119,9 @@
                             <td>Pérdidas Insensibles</td>
                             <td><input id="perdidas-insensibles" class="input readonly" type="number" placeholder="Pérdidas Insensibles" readonly></td>
                         </tr>
-
                         <tr>	
                             <td>Cálculo de Vómitos, Sudor, Fiebre y Tqn</td>
-                            <td><input type="number" id="fuerafluidos-box${i}" class="input readonly" placeholder="Vómitos,Sudor,Fiebre,Tqn" readonly>
-                        </td>
+                            <td><input type="number" id="fuerafluidos-box${i}" class="input readonly" placeholder="Vómitos,Sudor,Fiebre,Tqn" readonly></td>
                         </tr>
                     </tbody>
                     <tfoot>
