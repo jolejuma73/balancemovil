@@ -35,7 +35,6 @@
     <!----------------DATOS------------------->
     <!-- Contenedor para las cajas centrales -->
         <section id="box-data">
-            <div class="container__datos_item">
                 <div id="selected-box">
                     <h2>Box seleccionado: Ninguno</h2>
                 </div>
@@ -49,14 +48,12 @@
                         <input class="input" type="number" placeholder="Ingrese horas" min="0" max="24">
                     </div>
                 </div>
-            </div>
         </section>
 
-    <div class="row">
+    <div class="row"> <!--PERDIDAS E INGRESOS-->
         <!---------PERDIDAS------->
 
         <section id="box-losses">
-            <div class="container-perdidas-item">
                 <h2>Pérdidas</h2>
                 <table class="table__perdidas">
                     <thead>
@@ -131,7 +128,6 @@
                         </tr>                              
                     </tfoot>
                 </table>            
-            </div>
             <div class="button"><button id="borrar-datos" onclick="borrarDatos()">Borrar Datos</button>
             </div>
         </section>  
@@ -139,7 +135,6 @@
     <!-------INGRESOS----------->
 
         <section id="box-earings">
-            <div class="container-ingresos-item">
                 <h2 class="title">Ingresos</h2>
                 <table class="table__ingresos">
                     <thead>
@@ -219,7 +214,6 @@
                     </tfoot>
                     </tbody>
                 </table>            
-            </div>
             <div class="button"><button id="borrar-datos"  onclick="borrarDatos()">Borrar Datos</button>
             </div>
         </section>

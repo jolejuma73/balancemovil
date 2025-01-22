@@ -67,7 +67,7 @@ section {   /*--CAJA NAVIGATION  --*/
     text-align: center;
 }
 
-.container__nav ul li a {     /*--boxes--*/    
+.container__nav ul li a {     /*--boxes con sus cajas--*/    
         display: block;
     padding: 10px;
     background-color: #f4f4f4;
@@ -136,11 +136,9 @@ section {   /*--CAJA NAVIGATION  --*/
     border-radius: 5px;
     width: 200px;
 }
-
 /* =============================== */
-/*             PERDIDAS           */
+/*      PERDIDAS E INGRESOS        */
 /* =============================== */
-
 .row {  /*--separación entre perdidas, ingresos y summary--*/
     display: flex;
     flex-wrap: wrap; 
@@ -160,8 +158,13 @@ section {   /*--CAJA NAVIGATION  --*/
     margin: 0 auto; 
     width: 100%; 
     max-width: 1200px;
-
 }
+
+/* =============================== */
+/*             PERDIDAS           */
+/* =============================== */
+
+
 /* Caja de Pérdidas */
 
 .table__perdidas {     /*--TABLA PERDIDAS  MENOS READONLY, CO, VA Y TI--*/
@@ -208,21 +211,17 @@ section {   /*--CAJA NAVIGATION  --*/
 /* Caja de Pérdidas */
 #box-losses {   /*--TODA LA CAJA PERDIDAS MENOS READONLY, CO,VA y TP  --*/
     background-color: #e3f2fd;
-    padding-bottom: 20px; 
+    padding-bottom: 0px; 
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); 
-    margin-bottom: 174px; 
-}
-
-.container-perdidas-item {
+    margin-bottom: 175px;
     margin: 0 auto;
     max-width: 800px;
     text-align: center;
     animation: aparecer both;
     animation-timeline: view();
     animation-range: cover 10% contain 20%;
-    margin-bottom: 85px;
-    background-color: transparent;  
+    margin-bottom: 180px; 
 }
 
 .table__perdidas {  /*--perdidas menos readonly,  co,va y tp--*/
@@ -329,20 +328,18 @@ section {   /*--CAJA NAVIGATION  --*/
 /* Caja de Ingresos */
 #box-earings {    /*--TODA LA CAJA INGRESOS MENOS READONLY, CO,VA y TI  --*/
     background-color: #fffde7;
-    padding-bottom: 20px; 
+    padding-bottom: 0px; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); 
     margin-bottom: 175px; 
-}
-
-.container-ingresos-item {/*--caja ingresos--*/
     margin: 0 auto;
     max-width: 800px;
     text-align: center;
     animation: aparecer both;
     animation-timeline: view();
     animation-range: cover 10% contain 20%;
-    margin-bottom: 75px;   
-    background-color: transparent;}
+    margin-bottom: 180px;   
+}
+
 
 .table__ingresos {
     width: 100%; 
@@ -693,14 +690,17 @@ section {
         padding: 0; /* Asegúrate de que no haya padding adicional */
     }
 
-    #box-losses,
+    #box-losses {
+        margin:  0px 0px; /* Elimina márgenes adicionales */
+    }
     #box-earings {
-        margin: 0; /* Elimina márgenes adicionales */
+        margin-bottom: 180px; 
+
     }
 }
 @media (max-width: 768px) {
     #box-data {
-        margin: 0 auto; /* Centra la caja horizontalmente */
+        margin: 0px 0px ; 
         width: 100%; /* Asegura que ocupe todo el ancho disponible */
         max-width: none; /* Elimina cualquier restricción de ancho */
     }
