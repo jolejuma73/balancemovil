@@ -190,7 +190,7 @@ section {   /*--CAJA NAVIGATION  --*/
     margin: 0 ;
     table-layout: fixed;
     padding: 0; 
-    box-shadow: none;   
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .table__perdidas td {  /*--TABLA PERDIDAS  MENOS READONLY, CO, VA Y TI--*/
@@ -213,8 +213,7 @@ section {   /*--CAJA NAVIGATION  --*/
     font-weight: bold;
     width: 100%; 
     border-collapse: collapse;
-    margin: 0 auto; 
-    
+    margin: 0 auto;     
 }
 
 .table__perdidas td input {/*--input perdidas menos readonly--*/
@@ -244,6 +243,14 @@ section {   /*--CAJA NAVIGATION  --*/
     background-color: transparent;
 }
 
+#table__perdidas-concepto {
+    font-size: 1.2rem;
+text-align: center;}
+
+#table__perdidas-valor {
+    font-size: 1.2rem;
+    text-align: center;
+}
 /* Alinear las columnas de concepto y valor */
 .table__perdidas th:first-child, .table__perdidas td:first-child { /*--desde concepto a TP--*/
     text-align: left;     
@@ -286,6 +293,7 @@ section {   /*--CAJA NAVIGATION  --*/
     margin: 0 ; 
     table-layout: fixed;
     padding: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .table__ingresos td {  /*--TABLA INGRESOS MENOS READONLY, CO, VA Y TI  fff9c4--*/
@@ -295,7 +303,7 @@ section {   /*--CAJA NAVIGATION  --*/
     vertical-align: top; 
     border: 1px solid #ddd;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 0; 
+    margin: 0;
     padding: 5px; 
     background-color: transparent; 
 }
@@ -348,6 +356,15 @@ section {   /*--CAJA NAVIGATION  --*/
     text-align: right;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
+
+#table__ingresos-concepto {
+text-align: center;
+}
+
+#table__ingresos-valor {
+    text-align: center;
+}
+
 
 /* =============================== */
 /*       TOTALES Y BALANCES       */
