@@ -550,6 +550,11 @@ input.input__horas {
     /* Ejemplo: solo para inputs relacionados con horas */
 }
 
+/*--opacidad items--*/
+.disabled {
+    opacity: 0.3; /* Reduce visibilidad */
+    pointer-events: none; /* Deshabilita clics e interacción */
+}
 
 
 /*==============================*/
