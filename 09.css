@@ -2,30 +2,6 @@
 /*          GENERAL STYLES         */
 /* =============================== */
 
-.box {
-    flex: 1 1 auto; /* Permite que las cajas sean flexibles */
-    max-width: 80px; /* Tamaño máximo inicial de las cajas */
-    width: 10vw; /* Ajusta el tamaño proporcional al ancho del viewport */
-    aspect-ratio: 2 / 1; /* Mantiene la proporción de ancho:alto */
-    text-align: center; /* Centra el texto */
-    display: flex; /* Centra contenido dentro de las cajas */
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #ccc; /* Borde para mejor visualización */
-    border-radius: 6px; /* Bordes redondeados */
-    background-color: #f5f5f5; /* Fondo */
-    font-size: 0.8rem; /* Escala el texto dentro de las cajas */
-}
-
-#box-navigation {
-    display: flex;
-    flex-wrap: wrap; /* Permite que las cajas se ajusten a nuevas filas */
-    gap: 8px; /* Espaciado entre las cajas */
-    justify-content: center; /* Centra las cajas en su contenedor */
-    padding: 10px;
-}
-
-
 /* Contenedor principal para ordenar las cajas  para adaptarse a pantallas*/
 * {
     box-sizing: border-box;
@@ -158,6 +134,15 @@ section {   /*--CAJA NAVIGATION  --*/
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 200px;
+}
+
+/* =============================== */
+/*-----OPACIDAD CAJAS---*/
+/* =============================== */
+
+.disabled {
+    opacity: 0.3;
+    pointer-events: none;
 }
 
 /* =============================== */
@@ -550,11 +535,6 @@ input.input__horas {
     /* Ejemplo: solo para inputs relacionados con horas */
 }
 
-/*--opacidad items--*/
-.disabled {
-    opacity: 0.3; /* Reduce visibilidad */
-    pointer-events: none; /* Deshabilita clics e interacción */
-}
 
 
 /*==============================*/
@@ -781,16 +761,3 @@ section {
     }
 }
 
-@media (max-width: 768px) {
-    .box {
-        max-width: 60px; /* Reduce el ancho máximo */
-        font-size: 0.7rem; /* Ajusta el tamaño del texto */
-    }
-}
-
-@media (max-width: 480px) {
-    .box {
-        max-width: 50px; /* Tamaño aún más pequeño en pantallas pequeñas */
-        font-size: 0.6rem; /* Ajusta aún más el tamaño del texto */
-    }
-}

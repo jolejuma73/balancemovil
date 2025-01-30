@@ -19,51 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
     seccionesPerdidasIngresos.forEach(section => {
         section.style.opacity = "0.3";
         section.style.pointerEvents = "none"; // Deshabilitar interacción
-    
-
-    // opacidad
-        // Aquí debes pegar el código proporcionado
-        const pesoInput = document.querySelector("#peso-box");
-        const horasDesdeIngresoInput = document.querySelector("#horas-desde-ingreso-box");
-        const secciones = document.querySelectorAll("#box-losses, #box-earings");
-    
-        function deshabilitarSecciones() {
-            secciones.forEach(section => {
-                section.classList.add("disabled");
-                const inputs = section.querySelectorAll("input, select, textarea");
-                inputs.forEach(input => {
-                    input.disabled = true;
-                });
-            });
-        }
-    
-        function habilitarSecciones() {
-            secciones.forEach(section => {
-                section.classList.remove("disabled");
-                const inputs = section.querySelectorAll("input, select, textarea");
-                inputs.forEach(input => {
-                    input.disabled = false;
-                });
-            });
-        }
-    
-        function verificarCondiciones() {
-            const pesoValido = pesoInput && pesoInput.value.trim() !== "";
-            const horasValido = horasDesdeIngresoInput && horasDesdeIngresoInput.value.trim() !== "";
-    
-            if (pesoValido && horasValido) {
-                habilitarSecciones();
-            } else {
-                deshabilitarSecciones();
-            }
-        }
-    
-        pesoInput?.addEventListener("input", verificarCondiciones);
-        horasDesdeIngresoInput?.addEventListener("input", verificarCondiciones);
-    
-        deshabilitarSecciones(); // Inicializar con las secciones bloqueadas
     });
-    
+
     // Función para verificar si se puede habilitar las secciones
     function verificarHabilitacion() {
         const pesoValido = pesoInput && pesoInput.value.trim() !== "";
@@ -192,14 +149,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Cambiar color del campo Balance Total
         // Cambiar color y mostrar el contenido del campo Balance Total
-        const balanceTotalField = document.querySelector("#balance-total-box");
-        if (balanceTotalField) {
-            balanceTotalField.style.backgroundColor = balanceTotal >= 0 ? "#add8e6" : "#f08080"; // Azul claro para positivo, rojo claro para negativo
-            balanceTotalField.style.color = "black"; // Asegura que el texto sea siempre visible
-            balanceTotalField.style.fontWeight = "bold"; // Resalta el texto
-            balanceTotalField.value = balanceTotal.toFixed(2); // Asegura que el valor sea visible y actualizado
-        }
-        
+const balanceTotalField = document.querySelector("#balance-total-box");
+if (balanceTotalField) {
+    balanceTotalField.style.backgroundColor = balanceTotal >= 0 ? "#add8e6" : "#f08080"; // Azul claro para positivo, rojo claro para negativo
+    balanceTotalField.style.color = "black"; // Asegura que el texto sea siempre visible
+    balanceTotalField.style.fontWeight = "bold"; // Resalta el texto
+    balanceTotalField.value = balanceTotal.toFixed(2); // Asegura que el valor sea visible y actualizado
+}
+
 
 
 
@@ -304,14 +261,48 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Datos del Box borrados correctamente");
         });
     }
-    
+
     // Verificar habilitación inicial al cargar la página
     verificarHabilitacion();
+});
+document.addEventListener("DOMContentLoaded", () => {
+    const pesoInput = document.querySelector("#peso-box");
+    const horasDesdeIngresoInput = document.querySelector("#horas-desde-ingreso-box");
+    const boxLosses = document.querySelector("#box-losses");
+    const boxEarings = document.querySelector("#box-earings");
+    const selectedBoxElement = document.querySelector("#selected-box h2");
+    const boxLinks = document.querySelectorAll("#box-navigation ul li a");
 
-        
-        
-        
-        
-        
-        
-    })
+    // Aplicar clase 'disabled' al inicio
+    boxLosses.classList.add("disabled");
+    boxEarings.classList.add("disabled");
+
+    let boxSeleccionado = false;
+
+    // Función para verificar si habilitar los inputs
+    function verificarHabilitacion() {
+        const pesoValido = pesoInput.value.trim() !== "";
+        const horasDesdeIngresoValido = horasDesdeIngresoInput.value.trim() !== "";
+
+        if (pesoValido && horasDesdeIngresoValido && boxSeleccionado) {
+            boxLosses.classList.remove("disabled");
+            boxEarings.classList.remove("disabled");
+        } else {
+            boxLosses.classList.add("disabled");
+            boxEarings.classList.add("disabled");
+        }
+    }
+
+    // Detectar selección de un box
+    boxLinks.forEach(link => {
+        link.addEventListener("click", (event) => {
+            event.preventDefault();
+            boxSeleccionado = true;
+            verificarHabilitacion();
+        });
+    });
+
+    // Agregar eventos a los inputs para detectar cambios
+    pesoInput.addEventListener("input", verificarHabilitacion);
+    horasDesdeIngresoInput.addEventListener("input", verificarHabilitacion);
+});
