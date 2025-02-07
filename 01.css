@@ -565,7 +565,8 @@ section {
 /*--Agrega un efecto pulsante a los valores totales para destacar cambios.--*/
 
 .input.readonly.balance {
-    animation: pulse 2s 1;  /*--ease por infinite--*/
+    animation: pulse 2s infinite;  /*--ease por infinite--*/
+    
 }
 
 @keyframes pulse {
@@ -585,8 +586,8 @@ section {
 
 .input:focus {
     outline: none;
-    border: 2px solid #4caf50;
-    box-shadow: 0 0 10px rgba(0, 200, 0, 0.5);
+    border: 2px solid #fcfdfd;
+    box-shadow: 0 0 10px #383838;
     transition: all 0.3s;
 }
 
